@@ -19,7 +19,18 @@
       <div class="settings-center">
         <div class="wrapper container modal-content" ng-controller="calendarSettingsController">
           <div class="modal-header">
-            <!-- TODO: to come -->
+            <h2 id="settings-title"> {{"settings" | translate }}
+              <button id="settings-close" type="button" class="close" ng-click="closeSettings()">
+                <span>&times;</span>
+                <span class="sr-only">Close</span>
+              </button>
+            </h2>
+            <div class="sticky-wrapper">
+              <widget-button-toolbar
+                save="saveSettings()" cancel="closeSettings()" disable-save="settingsForm.$invalid"
+                help="http://www.risevision.com/help/users/what-are-gadgets/free-gadgets/rise-vision-events/"
+                contribute="https://github.com/Rise-Vision/widget-google-calendar"></widget-button-toolbar>
+            </div>
           </div>
           <form role="form" name="settingsForm">
             <!-- TODO: to come -->
@@ -44,6 +55,9 @@
   <script src="settings/settings-app.js"></script>
   <script src="components/widget-settings-ui-core/dist/widget-settings-ui-core.js"></script>
   <script src="settings/ctr-google-calendar-settings.js"></script>
+
+  <script src="components/widget-settings-ui-components/dist/js/angular/widget-button-toolbar.js"></script>
+  <script src="components/widget-settings-ui-components/dist/js/angular/tooltip.js"></script>
   <!-- endbuild -->
 
   <!-- build:e2egadgets -->
