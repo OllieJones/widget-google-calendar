@@ -128,6 +128,7 @@
 
   gulp.task("test:unit:ng", factory.testUnitAngular(
     {testFiles: [
+      "src/components/jquery/dist/jquery.js",
       "src/components/q/q.js",
       "src/components/angular/angular.js",
       "src/components/angular-translate/angular-translate.js",
@@ -135,6 +136,9 @@
       "src/components/angular-route/angular-route.js",
       "src/components/angular-mocks/angular-mocks.js",
       "node_modules/widget-tester/mocks/common-mock.js",
+      "src/components/bootstrap-sass-official/assets/javascripts/bootstrap.js",
+      "src/components/angular-bootstrap/ui-bootstrap-tpls.js",
+      "src/components/widget-settings-ui-components/dist/js/**/*.js",
       "src/components/widget-settings-ui-core/dist/*.js",
       "src/config/test.js",
       "src/settings/settings-app.js",
