@@ -9,7 +9,7 @@
   var chaiAsPromised = require("chai-as-promised");
 
   chai.use(chaiAsPromised);
-  //var expect = chai.expect;
+  var expect = chai.expect;
 
   browser.driver.manage().window().setSize(1024, 768);
 
@@ -18,7 +18,19 @@
       browser.get("/src/settings-e2e.html");
     });
 
-    // TODO: tests to come
+    it("Should load all components", function () {
+      // scroll setting component
+      expect(element(by.id("scroll-by")).isPresent()).
+        to.eventually.be.true;
+
+    });
+
+    it("Should correctly load default settings", function () {
+      //scroll disabled
+      expect(element(by.id("scroll-by")).getAttribute("value")).
+        to.eventually.equal("none");
+
+    });
 
     xit("Should correctly save settings", function (done) {
 
