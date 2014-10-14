@@ -7,6 +7,7 @@ angular.module("risevision.widget.googleCalendar.settings")
     params: {},
     additionalParams: {
       calendar: "",
-      scroll: {}
+      scroll: {},
+      dateRange: "week" // default
     }
   });

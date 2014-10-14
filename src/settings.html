@@ -37,10 +37,24 @@
               <label>{{ "calendar.label" | translate }}</label>
               <input name="calendar" type="text" ng-model="settings.additionalParams.calendar" required class="form-control">
               <p class="text-danger" ng-show="settingsForm.calendar.$error.required">
-                {{'calendar.error.required' | translate}}
+                {{"calendar.error.required" | translate}}
               </p>
             </div>
             <scroll-setting scroll="settings.additionalParams.scroll"></scroll-setting>
+            <div class="form-group">
+              <label for="dateRange">{{ "date-range.label" | translate }}</label>
+              <div class="row">
+                <div class="col-xs-6 col-md-3">
+                  <select id="dateRange" name="dateRange" ng-model="settings.additionalParams.dateRange" class="form-control">
+                    <option value="day">{{"date-range.day" | translate}}</option>
+                    <option value="week">{{"date-range.week" | translate}}</option>
+                    <option value="month">{{"date-range.month" | translate}}</option>
+                    <option value="6months">{{"date-range.6months" | translate}}</option>
+                    <option value="12months">{{"date-range.12months" | translate}}</option>
+                  </select>
+                </div>
+              </div>
+            </div>
           </form>
         </div>
       </div>
