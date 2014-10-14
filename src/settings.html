@@ -33,7 +33,13 @@
             </div>
           </div>
           <form role="form" name="settingsForm">
-            <!-- TODO: calendar id entry -->
+            <div ng-class="{'form-group':true, 'has-error':settingsForm.calendar.$invalid}">
+              <label>{{ "calendar.label" | translate }}</label>
+              <input name="calendar" type="text" ng-model="settings.additionalParams.calendar" required class="form-control">
+              <p class="text-danger" ng-show="settingsForm.calendar.$error.required">
+                {{'calendar.error.required' | translate}}
+              </p>
+            </div>
             <scroll-setting scroll="settings.additionalParams.scroll"></scroll-setting>
           </form>
         </div>
