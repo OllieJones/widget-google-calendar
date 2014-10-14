@@ -9,6 +9,12 @@ angular.module("risevision.widget.googleCalendar.settings")
       calendar: "",
       scroll: {},
       dateRange: "week", // default
-      dateFont: {}
+      dateFont: {},
+      timeFont: {
+        type: "standard",
+        font: "Verdana",
+        family: "Verdana, Geneva, sans-serif"
+      },
+      timeFormat: "12hour" // default
     }
   });
