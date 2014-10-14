@@ -17,5 +17,13 @@
   "date-font": {
     "label": "Date Font",
     "text": "Date Sample Text"
+  },
+  "time-font": {
+    "label": "Time Font"
+  },
+  "time-format": {
+    "label": "Time Format",
+    "12hour": "12-Hour",
+    "24hour": "24-Hour"
   }
 }
