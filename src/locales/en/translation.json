@@ -5,5 +5,13 @@
     "error": {
       "required": "Please enter a Calendar ID"
     }
+  },
+  "date-range": {
+    "label": "Date Range",
+    "day": "Day",
+    "week": "Week",
+    "month": "Month",
+    "6months": "6 Months",
+    "12months": "12 Months"
   }
 }
