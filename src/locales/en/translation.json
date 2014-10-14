@@ -25,5 +25,14 @@
     "label": "Time Format",
     "12hour": "12-Hour",
     "24hour": "24-Hour"
+  },
+  "title-font": {
+    "label": "Title Font"
+  },
+  "location-font": {
+    "label": "Location Font"
+  },
+  "description-font": {
+    "label": "Description Font"
   }
 }
