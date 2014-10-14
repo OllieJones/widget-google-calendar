@@ -6,6 +6,7 @@ angular.module("risevision.widget.googleCalendar.settings")
   .value("defaultSettings", {
     params: {},
     additionalParams: {
+      calendar: "",
       scroll: {}
     }
   });

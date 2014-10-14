@@ -1,3 +1,9 @@
 {
-  "settings": "Google Calendar Settings"
+  "settings": "Google Calendar Settings",
+  "calendar": {
+    "label": "Calendar ID",
+    "error": {
+      "required": "Please enter a Calendar ID"
+    }
+  }
 }
