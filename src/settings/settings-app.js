@@ -3,7 +3,8 @@ angular.module("risevision.widget.googleCalendar.settings",
     "risevision.widget.common.translate",
     "risevision.widget.common.tooltip",
     "risevision.widget.common.widget-button-toolbar",
-    "risevision.widget.common.scroll-setting"]);
+    "risevision.widget.common.scroll-setting",
+    "risevision.widget.common.font-setting"]);
 
 angular.module("risevision.widget.common.translate", ["pascalprecht.translate"])
   .config(["$translateProvider", function ($translateProvider) {

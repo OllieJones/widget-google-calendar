@@ -13,5 +13,9 @@
     "month": "Month",
     "6months": "6 Months",
     "12months": "12 Months"
+  },
+  "date-font": {
+    "label": "Date Font",
+    "text": "Date Sample Text"
   }
 }

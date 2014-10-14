@@ -30,6 +30,24 @@
       expect(element(by.id("scroll-by")).getAttribute("value")).
         to.eventually.equal("none");
 
+      expect(element(by.id("dateRange")).getAttribute("value")).
+        to.eventually.equal("week");
+
+    });
+
+    it("Should show invalid form", function () {
+      expect(element(by.css("form[name=settingsForm].ng-invalid")).isPresent()).
+        to.eventually.be.true;
+
+      expect(element(by.css("form[name=settingsForm].ng-valid")).isPresent()).
+        to.eventually.be.false;
+
+      expect(element(by.css(".text-danger")).isDisplayed()).
+        to.eventually.be.true;
+
+      // save button should be disabled
+      expect(element(by.css("button#save[disabled=disabled")).isPresent()).
+        to.eventually.be.true;
     });
 
     xit("Should correctly save settings", function (done) {

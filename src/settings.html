@@ -55,6 +55,12 @@
                 </div>
               </div>
             </div>
+            <div class="form-group">
+              <label>{{'date-font.label' | translate}}</label>
+              <font-setting font-data="settings.additionalParams.dateFont" hide-alignment="true"
+                            preview-text="{{'date-font.text' | translate}}">
+              </font-setting>
+            </div>
           </form>
         </div>
       </div>
@@ -70,7 +76,18 @@
   <script src="components/bootstrap-sass-official/assets/javascripts/bootstrap.js"></script>
   <script src="components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
   <script src="components/bootstrap-select/bootstrap-select.js"></script>
+  <script src="components/spectrum/spectrum.js"></script>
   <script src="components/rv-bootstrap-formhelpers/dist/js/rv-bootstrap-formhelpers.js"></script>
+  <script src="components/bootstrap-form-components/dist/js/bootstrap-font-picker.js"></script>
+  <script src="components/bootstrap-form-components/dist/js/angular/bootstrap-font-picker.js"></script>
+  <script src="components/bootstrap-form-components/dist/js/bootstrap-font-size-picker.js"></script>
+  <script src="components/bootstrap-form-components/dist/js/angular/bootstrap-font-size-picker.js"></script>
+  <script src="components/widget-settings-ui-components/dist/js/alignment.js"></script>
+  <script src="components/widget-settings-ui-components/dist/js/angular/alignment.js"></script>
+  <script src="components/widget-settings-ui-components/dist/js/url-field.js"></script>
+  <script src="components/widget-settings-ui-components/dist/js/angular/color-picker.js"></script>
+  <script src="components/widget-settings-ui-components/dist/js/font-style.js"></script>
+  <script src="components/widget-settings-ui-components/dist/js/angular/font-style.js"></script>
 
   <script src="config/config.js"></script>
   <script src="settings/settings-app.js"></script>
@@ -80,6 +97,7 @@
   <script src="components/widget-settings-ui-components/dist/js/angular/widget-button-toolbar.js"></script>
   <script src="components/widget-settings-ui-components/dist/js/angular/tooltip.js"></script>
   <script src="components/widget-settings-ui-components/dist/js/angular/scroll-setting.js"></script>
+  <script src="components/widget-settings-ui-components/dist/js/angular/font-setting.js"></script>
   <!-- endbuild -->
 
   <!-- build:e2egadgets -->
