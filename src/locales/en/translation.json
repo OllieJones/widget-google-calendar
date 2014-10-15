@@ -6,25 +6,34 @@
       "required": "Please enter a Calendar ID"
     }
   },
-  "date-range": {
-    "label": "Date Range",
-    "day": "Day",
-    "week": "Week",
-    "month": "Month",
-    "6months": "6 Months",
-    "12months": "12 Months"
+  "date": {
+    "heading": "Date",
+    "range": {
+      "label": "Range",
+      "day": "Day",
+      "week": "Week",
+      "month": "Month",
+      "6months": "6 Months",
+      "12months": "12 Months"
+    },
+    "format": {
+      "label": "Format"
+    },
+    "font": {
+      "label": "Font",
+      "text": "Date Sample Text"
+    }
   },
-  "date-font": {
-    "label": "Date Font",
-    "text": "Date Sample Text"
-  },
-  "time-font": {
-    "label": "Time Font"
-  },
-  "time-format": {
-    "label": "Time Format",
-    "12hour": "12-Hour",
-    "24hour": "24-Hour"
+  "time": {
+    "heading": "Time",
+    "font": {
+      "label": "Font"
+    },
+    "format": {
+      "label": "Format",
+      "12hour": "12-Hour",
+      "24hour": "24-Hour"
+    }
   },
   "title-font": {
     "label": "Title Font"

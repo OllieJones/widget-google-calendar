@@ -31,7 +31,10 @@
         to.eventually.equal("none");
 
       expect(element(by.id("dateRange")).getAttribute("value")).
-        to.eventually.equal("week");
+        to.eventually.equal("day");
+
+      expect(element(by.id("dateFormat")).isDisplayed()).
+        to.eventually.be.false;
 
     });
 
