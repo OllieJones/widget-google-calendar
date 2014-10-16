@@ -87,7 +87,9 @@
               <h5>{{"time.heading" | translate}}</h5>
               <div class="form-group">
                 <label>{{"time.font.label" | translate}}</label>
-                <font-picker font="settings.additionalParams.timeFont"></font-picker>
+                <font-setting font-data="settings.additionalParams.timeFont" hide-alignment="true"
+                              preview-text="{{'time.font.text' | translate}}">
+                </font-setting>
               </div>
               <div class="form-group">
                 <label for="timeFormat">{{"time.format.label" | translate}}</label>
@@ -103,15 +105,21 @@
             </div>
             <div class="form-group">
               <label>{{"title-font.label" | translate}}</label>
-              <font-picker font="settings.additionalParams.titleFont"></font-picker>
+              <font-setting font-data="settings.additionalParams.titleFont" hide-alignment="true"
+                            preview-text="{{'title-font.text' | translate}}">
+              </font-setting>
             </div>
             <div class="form-group">
               <label>{{"location-font.label" | translate}}</label>
-              <font-picker font="settings.additionalParams.locationFont"></font-picker>
+              <font-setting font-data="settings.additionalParams.locationFont" hide-alignment="true"
+                            preview-text="{{'location-font.text' | translate}}">
+              </font-setting>
             </div>
             <div class="form-group">
               <label>{{"description-font.label" | translate}}</label>
-              <font-picker font="settings.additionalParams.descriptionFont"></font-picker>
+              <font-setting font-data="settings.additionalParams.descriptionFont" hide-alignment="true"
+                            preview-text="{{'description-font.text' | translate}}">
+              </font-setting>
             </div>
           </form>
         </div>

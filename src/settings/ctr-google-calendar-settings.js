@@ -34,26 +34,10 @@ angular.module("risevision.widget.googleCalendar.settings")
       scroll: {},
       dateRange: "day",
       dateFont: {},
-      timeFont: {
-        type: "standard",
-        font: "Verdana",
-        family: "Verdana, Geneva, sans-serif"
-      },
+      timeFont: {},
       timeFormat: "12hour",
-      titleFont: {
-        type: "standard",
-        font: "Verdana",
-        family: "Verdana, Geneva, sans-serif"
-      },
-      locationFont: {
-        type: "standard",
-        font: "Verdana",
-        family: "Verdana, Geneva, sans-serif"
-      },
-      descriptionFont: {
-        type: "standard",
-        font: "Verdana",
-        family: "Verdana, Geneva, sans-serif"
-      }
+      titleFont: {},
+      locationFont: {},
+      descriptionFont: {}
     }
   });
