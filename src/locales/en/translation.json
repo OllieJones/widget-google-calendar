@@ -27,7 +27,8 @@
   "time": {
     "heading": "Time",
     "font": {
-      "label": "Font"
+      "label": "Font",
+      "text": "Time Sample Text"
     },
     "format": {
       "label": "Format",
@@ -36,12 +37,15 @@
     }
   },
   "title-font": {
-    "label": "Title Font"
+    "label": "Title Font",
+    "text": "Title Sample Text"
   },
   "location-font": {
-    "label": "Location Font"
+    "label": "Location Font",
+    "text": "Location Sample Text"
   },
   "description-font": {
-    "label": "Description Font"
+    "label": "Description Font",
+    "text": "Description Sample Text"
   }
 }
