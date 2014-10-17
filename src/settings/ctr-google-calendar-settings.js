@@ -35,11 +35,21 @@ angular.module("risevision.widget.googleCalendar.settings")
       calendar: "",
       scroll: {},
       dateRange: "day",
-      dateFont: {},
-      timeFont: {},
+      dateFont: {
+        bold: true
+      },
+      timeFont: {
+        bold: true
+      },
       timeFormat: "12hour",
-      titleFont: {},
-      locationFont: {},
-      descriptionFont: {}
+      titleFont: {
+        bold: true
+      },
+      locationFont: {
+        bold: true
+      },
+      descriptionFont: {
+        size: 18
+      }
     }
   });
