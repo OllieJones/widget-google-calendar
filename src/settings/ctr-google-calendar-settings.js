@@ -49,7 +49,7 @@ angular.module("risevision.widget.googleCalendar.settings")
         bold: true
       },
       descriptionFont: {
-        size: 18
+        size: "18"
       }
     }
   });
