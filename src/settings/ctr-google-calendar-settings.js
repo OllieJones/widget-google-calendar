@@ -2,7 +2,7 @@ angular.module("risevision.widget.googleCalendar.settings")
   .controller("calendarSettingsController", ["$scope",
     function ($scope) {
       $scope.showDateFormat = false;
-      $scope.dateFormatValue = "dd/MM/yyyy";
+      $scope.dateFormatValue = "D/M/YYYY";
 
       $scope.currentDate = new Date();
 

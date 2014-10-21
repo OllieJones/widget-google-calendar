@@ -59,7 +59,7 @@ RiseVision.Calendar = (function (gadgets) {
 
     // Add events for each day.
     for (i = 0, length = calendarDays.length; i < length; i++) {
-      calendarDays[i].addEvents(params, i);
+      calendarDays[i].addDay(params, i);
     }
   }
 

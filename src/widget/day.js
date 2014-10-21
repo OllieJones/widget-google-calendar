@@ -18,29 +18,24 @@ RiseVision.Calendar.Day = function(params) {
     var i,
       length,
       date,
-      $day;
+      currentDate = events[0].start.dateTime,
+      $day = $(".day").eq(pos);
 
-    switch (params.dateRange) {
-      case "day":
+    if (params.dateRange === "day") {
+      date = "Today";
+    }
+    else if (params.dateRange === "week") {
+      if (moment(currentDate).isSame(moment(), "day")) {
         date = "Today";
-        break;
-      case "week":
-        // TODO
-        break;
-      case "month":
-        // TODO
-        break;
-      case "6months":
-        // TODO
-        break;
-      case "12months":
-        // TODO
-        break;
-      default:
-        date = "Today";
+      }
+      else {
+        date = moment(currentDate).format("dddd");
+      }
+    }
+    else {
+      date = moment(currentDate).format(params.dateFormat);
     }
 
-    $day = $(".day").eq(pos);
     $day.find(".date").text(date);
 
     // Clone the UI for each additional event after the first.
@@ -55,7 +50,7 @@ RiseVision.Calendar.Day = function(params) {
   }
 
   return {
-    addEvents: add,
+    addDay: add,
     setEvents: set
   };
 };
