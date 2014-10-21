@@ -1,7 +1,7 @@
-/* global CONFIG: true */
-/* exported CONFIG */
-if (typeof CONFIG === "undefined") {
-  var CONFIG = {
-    // variables go here
+/* global config: true */
+/* exported config */
+if (typeof config === "undefined") {
+  var config = {
+    apiKey: "AIzaSyBXxVK_IOV7LNQMuVVo_l7ZvN53ejN86zY"
   };
 }
