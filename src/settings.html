@@ -68,11 +68,11 @@
                 <div class="row">
                   <div class="col-xs-6 col-md-3">
                     <select id="dateFormat" name="dateFormat" ng-model="settings.additionalParams.dateFormat" class="form-control">
-                      <option value="dd/MM/yyyy">{{currentDate | date: "dd'/'MM'/'yyyy"}}</option>
-                      <option value="MM/dd/yyyy">{{currentDate | date: "MM'/'dd'/'yyyy"}}</option>
-                      <option value="yyyy/MM/dd">{{currentDate | date: "yyyy'/'MM'/'dd"}}</option>
-                      <option value="MMMM dd, yyyy">{{currentDate | date: "MMMM dd',' yyyy"}}</option>
-                      <option value="dd-MMM-yyyy">{{currentDate | date:"dd'-'MMM'-'yyyy"}}</option>
+                      <option value="D/M/YYYY">{{currentDate | date: "dd'/'MM'/'yyyy"}}</option>
+                      <option value="M/D/YYYY">{{currentDate | date: "MM'/'dd'/'yyyy"}}</option>
+                      <option value="YYYY/M/D">{{currentDate | date: "yyyy'/'MM'/'dd"}}</option>
+                      <option value="MMMM D, YYYY">{{currentDate | date: "MMMM dd',' yyyy"}}</option>
+                      <option value="D-MMM-YYYY">{{currentDate | date:"dd'-'MMM'-'yyyy"}}</option>
                     </select>
                   </div>
                 </div>
