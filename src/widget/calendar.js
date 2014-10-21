@@ -61,6 +61,23 @@ RiseVision.Calendar = (function (gadgets) {
     for (i = 0, length = calendarDays.length; i < length; i++) {
       calendarDays[i].addDay(params, i);
     }
+
+    $("#container").autoScroll(params.scroll)
+    .on("done", function() {
+      done();
+    });
+
+    ready();
+  }
+
+  function getEventsList() {
+    RiseVision.Calendar.Provider.getEventsList(params, {
+      "success": addEvents,
+      "error": function(reason) {
+        console.log("Error: " + reason.result.error.message);
+        ready();
+      }
+    });
   }
 
   function ready() {
@@ -81,28 +98,28 @@ RiseVision.Calendar = (function (gadgets) {
 
     if (name === "additionalParams" && value) {
       params = JSON.parse(value);
-      RiseVision.Calendar.Provider.getData(params, {
-        "success": addEvents,
-        "error": function(reason) {
-          console.log("Error: " + reason.result.error.message);
-        }
-      });
-    }
 
-    ready();
+      $("#container").height(prefs.getInt("rsH"));
+      getEventsList();
+    }
   }
 
   function play() {
-
+    $("#container").data("plugin_autoScroll").play();
   }
 
   function pause() {
+    $("#container").data("plugin_autoScroll").pause();
+  }
 
+  function stop() {
+    $("#container").data("plugin_autoScroll").stop();
   }
 
   return {
     getAdditionalParams: getAdditionalParams,
     play               : play,
-    pause              : pause
+    pause              : pause,
+    stop               : stop
   };
 })(gadgets);
