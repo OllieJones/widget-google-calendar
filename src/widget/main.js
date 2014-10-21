@@ -41,4 +41,3 @@ function init() {
     gadgets.rpc.call("", "rsparam_get", null, id, "additionalParams");
   });
 }
-
