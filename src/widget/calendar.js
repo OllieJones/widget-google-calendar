@@ -6,12 +6,32 @@ RiseVision.Calendar = {};
 RiseVision.Calendar = (function (gadgets) {
   "use strict";
 
-  var prefs = new gadgets.Prefs(),
-    params;
+  var params,
+    timeoutID,
+    fragment,
+    daysNode,
+    isLoading = true,
+    isExpired = false,
+    prefs = new gadgets.Prefs(),
+    $container = $("#container");
 
   /*
    *  Private Methods
    */
+  function getEventsList() {
+    RiseVision.Calendar.Provider.getEventsList(params, {
+      "success": addEvents,
+      "error": function(reason) {
+        console.log("Error: " + reason.result.error.message);
+
+        if (isLoading) {
+          isLoading = false;
+          ready();
+        }
+      }
+    });
+  }
+
   function addEvents(resp) {
     var i,
       length,
@@ -20,7 +40,11 @@ RiseVision.Calendar = (function (gadgets) {
       currentEvents,
       calendarDay,
       calendarDays = [],
+      dayFragment,
+      delay = 300000, /* 5 minutes */
       events = resp.result.items;
+
+    $("#days").empty();
 
     if (events.length > 0) {
       lastDay = moment(events[events.length - 1].start.dateTime);
@@ -52,32 +76,46 @@ RiseVision.Calendar = (function (gadgets) {
       }
     }
 
-    // Clone the UI for each day less one.
-    for (i = 1, length = calendarDays.length; i < length; i++) {
-      $(".day:first").clone().appendTo(".days");
+    // Clone the UI for each day.
+    dayFragment = document.createDocumentFragment();
+
+    for (i = 0, length = calendarDays.length; i < length; i++) {
+      dayFragment.appendChild(fragment.cloneNode(true));
     }
+
+    daysNode.appendChild(dayFragment);
 
     // Add events for each day.
     for (i = 0, length = calendarDays.length; i < length; i++) {
       calendarDays[i].addDay(params, i);
     }
 
-    $("#container").autoScroll(params.scroll)
-    .on("done", function() {
-      done();
-    });
+    timeoutID = setTimeout(function() {
+      isExpired = true;
 
-    ready();
+      // Refresh immediately if the content is not scrolling.
+      if (!$container.data("plugin_autoScroll").canScroll()) {
+        refresh();
+      }
+    }, delay);
+
+    if (isLoading) {
+      $container.autoScroll(params.scroll)
+        .on("done", function() {
+          refresh();
+          done();
+        });
+
+      isLoading = false;
+      ready();
+    }
   }
 
-  function getEventsList() {
-    RiseVision.Calendar.Provider.getEventsList(params, {
-      "success": addEvents,
-      "error": function(reason) {
-        console.log("Error: " + reason.result.error.message);
-        ready();
-      }
-    });
+  function refresh() {
+    if (isExpired) {
+      getEventsList();
+      isExpired = false;
+    }
   }
 
   function ready() {
@@ -93,27 +131,36 @@ RiseVision.Calendar = (function (gadgets) {
    *  Public Methods
    */
   function getAdditionalParams(name, value) {
-    var i,
-      length;
-
     if (name === "additionalParams" && value) {
       params = JSON.parse(value);
 
-      $("#container").height(prefs.getInt("rsH"));
+      // Store the base HTML in a DocumentFragment so that it can be used later.
+      fragment = document.createDocumentFragment();
+      daysNode = document.getElementById("days");
+
+      // Add the HTML to the fragment.
+      while (daysNode.firstChild) {
+        fragment.appendChild(daysNode.firstChild);
+      }
+
+      $container.height(prefs.getInt("rsH"));
       getEventsList();
     }
   }
 
   function play() {
-    $("#container").data("plugin_autoScroll").play();
+    $container.data("plugin_autoScroll").play();
   }
 
   function pause() {
-    $("#container").data("plugin_autoScroll").pause();
+    $container.data("plugin_autoScroll").pause();
   }
 
   function stop() {
-    $("#container").data("plugin_autoScroll").stop();
+    // Ideally, the Widget should destroy itself, but unable to do so right now
+    // since `stop` is being called by RVA instead of `pause` when it's the only
+    // item in a Playlist.
+    pause();
   }
 
   return {
