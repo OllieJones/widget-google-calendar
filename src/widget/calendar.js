@@ -1,4 +1,4 @@
-/* global gadgets, moment, gapi */
+/* global gadgets, moment */
 
 var RiseVision = RiseVision || {};
 RiseVision.Calendar = {};
@@ -13,6 +13,7 @@ RiseVision.Calendar = (function (gadgets) {
     isLoading = true,
     isExpired = false,
     prefs = new gadgets.Prefs(),
+    utils = RiseVision.Common.Utilities,
     $container = $("#container");
 
   /*
@@ -22,7 +23,8 @@ RiseVision.Calendar = (function (gadgets) {
     RiseVision.Calendar.Provider.getEventsList(params, {
       "success": addEvents,
       "error": function(reason) {
-        console.log("Error: " + reason.result.error.message);
+        $(".error").show();
+        console.log("Error retrieving calendar data: " + reason.result.error.message);
 
         if (isLoading) {
           isLoading = false;
@@ -134,6 +136,32 @@ RiseVision.Calendar = (function (gadgets) {
     if (name === "additionalParams" && value) {
       params = JSON.parse(value);
 
+      // Load fonts.
+      var fontSettings = [
+        {
+          "class": "date",
+          "fontSetting": params.dateFont
+        },
+        {
+          "class": "time",
+          "fontSetting": params.timeFont
+        },
+        {
+          "class": "summary",
+          "fontSetting": params.titleFont
+        },
+        {
+          "class": "location",
+          "fontSetting": params.locationFont
+        },
+        {
+          "class": "description",
+          "fontSetting": params.descriptionFont
+        }
+      ];
+
+      utils.loadFonts(fontSettings);
+
       // Store the base HTML in a DocumentFragment so that it can be used later.
       fragment = document.createDocumentFragment();
       daysNode = document.getElementById("days");
@@ -149,11 +177,15 @@ RiseVision.Calendar = (function (gadgets) {
   }
 
   function play() {
-    $container.data("plugin_autoScroll").play();
+    if ($container.data("plugin_autoScroll")) {
+      $container.data("plugin_autoScroll").play();
+    }
   }
 
   function pause() {
-    $container.data("plugin_autoScroll").pause();
+    if ($container.data("plugin_autoScroll")) {
+      $container.data("plugin_autoScroll").pause();
+    }
   }
 
   function stop() {

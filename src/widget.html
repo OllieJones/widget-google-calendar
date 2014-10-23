@@ -15,11 +15,20 @@
       padding: 0;
       list-style-type: none;
     }
+
+    .events {
+      padding-left: 20px;
+    }
+
+    .error {
+      display: none;
+    }
   </style>
 </head>
 
 <body>
   <div id="container">
+    <div class="error">Calendar cannot be shown probably because it is not public. Check your Calendar settings.</div>
     <ul id="days" class="page">
       <li class="day">
         <span class="date"></span>
@@ -44,6 +53,7 @@
   <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.11.7/plugins/ScrollToPlugin.min.js"></script>
 
   <!-- build:js js/widget.min.js -->
+  <script src="components/widget-common/dist/common.js"></script>
   <script src="components/auto-scroll/jquery.auto-scroll.js"></script>
   <script src="components/moment/moment.js"></script>
   <script src="components/underscore/underscore.js"></script>
