@@ -1,3 +1,5 @@
+/* global moment */
+
 var RiseVision = RiseVision || {};
 RiseVision.Calendar = RiseVision.Calendar || {};
 RiseVision.Calendar.Day = {};
@@ -14,7 +16,7 @@ RiseVision.Calendar.Day = function(params) {
     events = calendarEvents;
   }
 
-  function add(params, pos) {
+  function add(pos) {
     var i,
       length,
       date,

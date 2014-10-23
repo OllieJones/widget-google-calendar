@@ -1,3 +1,5 @@
+/* global moment */
+
 var RiseVision = RiseVision || {};
 RiseVision.Calendar = RiseVision.Calendar || {};
 RiseVision.Calendar.Event = {};

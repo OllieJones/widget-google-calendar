@@ -1,3 +1,6 @@
+/* global moment, gapi, gadgets, config */
+/* exported init */
+
 var RiseVision = RiseVision || {};
 RiseVision.Calendar = RiseVision.Calendar || {};
 RiseVision.Calendar.Provider = {};

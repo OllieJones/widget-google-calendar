@@ -1,4 +1,4 @@
-/* global gadgets, moment */
+/* global gadgets, moment, _ */
 
 var RiseVision = RiseVision || {};
 RiseVision.Calendar = {};
@@ -12,6 +12,7 @@ RiseVision.Calendar = (function (gadgets) {
     daysNode,
     isLoading = true,
     isExpired = false,
+    currentDay,
     prefs = new gadgets.Prefs(),
     utils = RiseVision.Common.Utilities,
     $container = $("#container");
@@ -38,7 +39,6 @@ RiseVision.Calendar = (function (gadgets) {
     var i,
       length,
       lastDay,
-      currentDay,
       currentEvents,
       calendarDay,
       calendarDays = [],
@@ -56,9 +56,7 @@ RiseVision.Calendar = (function (gadgets) {
         currentDay = moment(events[0].start.dateTime);
 
         // Get all events for the current day.
-        currentEvents = _.filter(events, function(event) {
-           return moment(event.start.dateTime).isSame(currentDay, "day");
-        });
+        currentEvents = _.filter(events, getCurrentEvents);
 
         if (currentEvents.length > 0) {
           // Create RiseVision.Calendar.Day object and set events for it.
@@ -67,9 +65,7 @@ RiseVision.Calendar = (function (gadgets) {
           calendarDays.push(calendarDay);
 
           // Remove all events for the current day from the remaining events.
-          events = _.filter(events, function(event) {
-            return !moment(event.start.dateTime).isSame(currentDay, "day");
-          });
+          events = _.filter(events, removeCurrentEvents);
         }
         else {
           // This should never happen, but exit loop just in case.
@@ -89,7 +85,7 @@ RiseVision.Calendar = (function (gadgets) {
 
     // Add events for each day.
     for (i = 0, length = calendarDays.length; i < length; i++) {
-      calendarDays[i].addDay(params, i);
+      calendarDays[i].addDay(i);
     }
 
     timeoutID = setTimeout(function() {
@@ -111,6 +107,14 @@ RiseVision.Calendar = (function (gadgets) {
       isLoading = false;
       ready();
     }
+  }
+
+  function getCurrentEvents(event) {
+    return moment(event.start.dateTime).isSame(currentDay, "day");
+  }
+
+  function removeCurrentEvents(event) {
+    return !moment(event.start.dateTime).isSame(currentDay, "day");
   }
 
   function refresh() {
