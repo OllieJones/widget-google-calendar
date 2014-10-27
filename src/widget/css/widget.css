@@ -1,0 +1,37 @@
+html, body {
+  background-color: transparent;
+}
+
+body {
+  /* Display & Box Model */
+  margin: 0;
+
+  /* Visual */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+
+ul {
+  /* Display & Box Model */
+  margin: 0;
+  padding: 0 20px;
+
+  /* Visual */
+  list-style-type: none;
+}
+
+.events {
+  padding: 10px 20px 0px 20px;
+  border-bottom: 1px solid gray;
+}
+
+.day {
+  padding-top: 10px;
+}
+
+.error {
+  display: none;
+}
