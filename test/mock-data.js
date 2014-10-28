@@ -8,7 +8,7 @@
     "params": {
     },
     "additionalParams": {
-      "calendar": "gm963kfm94r8sofrrhh05t0ib4@group.calendar.google.com",
+      "calendar": "calendarID",
       "scroll": {
         "by": "none",
         "speed": "medium",
