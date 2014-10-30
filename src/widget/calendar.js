@@ -78,12 +78,9 @@ RiseVision.Calendar = (function (gadgets) {
     template = document.querySelector("#events-template");
     daysNode = document.getElementById("days");
 
-    if (template) {
-      clone = document.importNode(template.content, true);
-    }
-
-    if (daysNode && clone) {
+    if (template && daysNode) {
       for (i = 0, length = calendarDays.length; i < length; i++) {
+        clone = document.importNode(template.content, true);
         daysNode.appendChild(clone);
       }
     }
