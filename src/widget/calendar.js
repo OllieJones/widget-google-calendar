@@ -8,8 +8,6 @@ RiseVision.Calendar = (function (gadgets) {
 
   var params,
     timeoutID,
-    fragment,
-    daysNode,
     isLoading = true,
     isExpired = false,
     currentDay,
@@ -42,7 +40,9 @@ RiseVision.Calendar = (function (gadgets) {
       currentEvents,
       calendarDay,
       calendarDays = [],
-      dayFragment,
+      template,
+      daysNode,
+      clone,
       delay = 300000, /* 5 minutes */
       events = resp.result.items;
 
@@ -74,15 +74,18 @@ RiseVision.Calendar = (function (gadgets) {
       }
     }
 
-    // Clone the UI for each day.
-    dayFragment = document.createDocumentFragment();
+    // Create the UI for each day.
+    template = document.querySelector("#events-template");
+    daysNode = document.getElementById("days");
 
-    for (i = 0, length = calendarDays.length; i < length; i++) {
-      dayFragment.appendChild(fragment.cloneNode(true));
+    if (template) {
+      clone = document.importNode(template.content, true);
     }
 
-    if (daysNode) {
-      daysNode.appendChild(dayFragment);
+    if (daysNode && clone) {
+      for (i = 0, length = calendarDays.length; i < length; i++) {
+        daysNode.appendChild(clone);
+      }
     }
 
     // Add events for each day.
@@ -170,18 +173,6 @@ RiseVision.Calendar = (function (gadgets) {
         ];
 
         utils.loadFonts(fontSettings);
-
-        // Store the base HTML in a DocumentFragment so that it can be used later.
-        fragment = document.createDocumentFragment();
-        daysNode = document.getElementById("days");
-
-        // Add the HTML to the fragment.
-        if (daysNode) {
-          while (daysNode.firstChild) {
-            fragment.appendChild(daysNode.firstChild);
-          }
-        }
-
         $container.height(prefs.getInt("rsH"));
         getEventsList();
       }
