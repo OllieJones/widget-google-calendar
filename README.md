@@ -101,4 +101,4 @@ If you would like more information on developing applications for Rise Vision pl
 
 **Facilitator**
 
-[Stuart Lees](https://github.com/stulees "Stuart Lees")
+[Donna Peplinskie](https://github.com/donnapep "Donna Peplinskie")
