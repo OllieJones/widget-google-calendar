@@ -8,24 +8,30 @@
   <!-- build:css css/widget.min.css -->
   <link rel="stylesheet" href="widget/css/widget.css">
   <!-- endbuild -->
+
+  <!-- build:js js/webcomponents.min.js -->
+  <script src="components/webcomponents.js/webcomponents.js"></script>
+  <!-- endbuild -->
 </head>
 
 <body>
+  <template id="events-template">
+    <li class="day">
+      <span class="date"></span>
+      <ul class="events">
+        <li class="event">
+          <span class="time"></span>
+          <span class="summary"></span><br>
+          <span class="location"></span>
+          <p class="description"></p>
+        </li>
+      </ul>
+    </li>
+  </template>
+
   <div id="container">
     <div class="error">Calendar cannot be shown probably because it is not public. Check your Calendar settings.</div>
-    <ul id="days" class="page">
-      <li class="day">
-        <span class="date"></span>
-        <ul class="events">
-          <li class="event">
-            <span class="time"></span>
-            <span class="summary"></span><br>
-            <span class="location"></span>
-            <p class="description"></p>
-          </li>
-        </ul>
-      </li>
-    </ul>
+    <ul id="days" class="page"></ul>
   </div>
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
