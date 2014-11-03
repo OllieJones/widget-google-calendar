@@ -10,10 +10,17 @@ RiseVision.Calendar.Event = (function () {
   /*
    *  Public Methods
    */
-  function add($day, pos, event) {
+  function add($day, pos, event, timeFormat) {
+    if (timeFormat === "12hour") {
+      timeFormat = "h:mma";
+    }
+    else {
+      timeFormat = "HH:mm";
+    }
+
     if (event.start && event.end && event.start.dateTime && event.end.dateTime) {
-      $day.find(".time").eq(pos).text(moment(event.start.dateTime).format("h:mma") +
-        " - " + moment(event.end.dateTime).format("h:mma"));
+      $day.find(".time").eq(pos).text(moment(event.start.dateTime).format(timeFormat) +
+        " - " + moment(event.end.dateTime).format(timeFormat));
     }
 
     if (event.summary) {
