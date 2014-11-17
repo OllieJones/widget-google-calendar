@@ -9,10 +9,10 @@ Widget Google Calendar works in conjunction with [Rise Vision](http://www.risevi
 At this time Chrome is the only browser that this project and Rise Vision supports.
 
 ## Built With
-- NPM (node package manager)
-- Angularjs
-- Gulp
+- AngularJS
+- npm
 - Bower
+- Gulp
 - Karma and Mocha for testing
 
 ## Development
@@ -20,7 +20,7 @@ At this time Chrome is the only browser that this project and Rise Vision suppor
 ### Local Development Environment Setup and Installation
 The Widget can be installed by executing the following commands:
 ```
-git clone git clone https://github.com/Rise-Vision/widget-google-calendar.git
+git clone https://github.com/Rise-Vision/widget-google-calendar.git
 cd widget-google-calendar
 npm install
 bower install
@@ -28,16 +28,16 @@ gulp build
 ```
 
 ### Run Local
-To preview Widgets locally, you'll have to run the [Widget Preview](https://github.com/Rise-Vision/widget-preview) app available for download [here](http://192.254.220.36/~rvi/widget-preview/).
+To preview Widgets locally, you'll have to run the [Widget Preview](https://github.com/Rise-Vision/widget-preview) app available [here](http://192.254.220.36/~rvi/widget-preview/).
 
 ### Dependencies
-* **Gulp** - is used as a task runner. It lints, runs unit tests and E2E (end to end) tests, minimizes files, etc.  all dependencies for this is in the gulp.js file.
-* **Bower** - is used as a package manager for javascript libraries and frameworks. All third-party javascript frameworks and libraries are listed as dependencies in the bower.json file.
-* **NPM & Nodejs** - the node package manager is used in hand in hand with gulp to start a server to host the app and all the dependencies needed from using a node server. All these node dependencies are listed in the package.json file
+* **Gulp** is a task runner. It lints, runs unit and E2E (end-to-end) tests, minimizes files, etc. Gulp tasks are defined in _gulpfile.js_.
+* **Bower** is a package manager for Javascript libraries and frameworks. All third-party Javascript dependencies are listed in the _bower.json_ file.
+* **npm** is the default package manager for Node.js. npm runs through the command line and manages dependencies for an application. These dependencies are listed in the _package.json_ file.
 
 ### Testing
-To run unit and E2E testing, do
-```bash
+Execute the following command to run both end-to-end and unit tests:
+```
 gulp test
 ```
 
