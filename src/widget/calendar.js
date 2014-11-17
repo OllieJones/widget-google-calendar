@@ -36,7 +36,6 @@ RiseVision.Calendar = (function (gadgets) {
   function addEvents(resp) {
     var i,
       length,
-      lastDay,
       currentEvents,
       calendarDay,
       calendarDays = [],
@@ -49,11 +48,14 @@ RiseVision.Calendar = (function (gadgets) {
     $("#days").empty();
 
     if (events.length > 0) {
-      lastDay = moment(events[events.length - 1].start.dateTime);
-
-      // Process all events that fall on or before lastDay.
       while (events.length > 0) {
-        currentDay = moment(events[0].start.dateTime);
+        if (events[0].start.dateTime) {
+          currentDay = moment(events[0].start.dateTime);
+        }
+        // All day event
+        else {
+          currentDay = moment(events[0].start.date);
+        }
 
         // Get all events for the current day.
         currentEvents = _.filter(events, getCurrentEvents);
@@ -114,11 +116,21 @@ RiseVision.Calendar = (function (gadgets) {
   }
 
   function getCurrentEvents(event) {
-    return moment(event.start.dateTime).isSame(currentDay, "day");
+    if (event.start.dateTime) {
+      return moment(event.start.dateTime).isSame(currentDay, "day");
+    }
+    else {
+      return moment(event.start.date).isSame(currentDay, "day");
+    }
   }
 
   function removeCurrentEvents(event) {
-    return !moment(event.start.dateTime).isSame(currentDay, "day");
+    if (event.start.dateTime) {
+      return !moment(event.start.dateTime).isSame(currentDay, "day");
+    }
+    else {
+      return !moment(event.start.date).isSame(currentDay, "day");
+    }
   }
 
   function refresh() {

@@ -1,4 +1,4 @@
-# Project Name [![Build Status](http://devtools1.risevision.com:8080/view/Widgets%20and%20Components/job/Widget-Google-Calendar-Master-Build/badge/icon)](http://devtools1.risevision.com:8080/view/Widgets%20and%20Components/job/Widget-Google-Calendar-Master-Build/)
+# Google Calendar Widget [![Build Status](http://devtools1.risevision.com:8080/view/Widgets%20and%20Components/job/Widget-Google-Calendar-Master-Build/badge/icon)](http://devtools1.risevision.com:8080/view/Widgets%20and%20Components/job/Widget-Google-Calendar-Master-Build/)
 
 ## Introduction
 
@@ -18,36 +18,13 @@ At this time Chrome is the only browser that this project and Rise Vision suppor
 ## Development
 
 ### Local Development Environment Setup and Installation
-* install the latest Node.js and NPM version
-
-* clone the repo using Git to your local:
-```bash
-git clone https://github.com/Rise-Vision/widget-google-calendar.git
+The Widget can be installed by executing the following commands:
 ```
-
-* cd into the repo directory
-```bash
+git clone git clone https://github.com/Rise-Vision/widget-google-calendar.git
 cd widget-google-calendar
-```
-
-* from the root of the repo run this command to install all npm dependencies
-```bash
 npm install
-```
-
-* install Bower globally using the NPM install cmd:
-```bash
-npm install -g bower
-```
-
-* run Bower install to install all bower dependencies:
-```bash
 bower install
-```
-
-* install Gulp globally using the NPM install cmd:
-```bash
-npm install -g gulp
+gulp build
 ```
 
 ### Run Local
