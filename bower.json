@@ -37,7 +37,6 @@
     "common-style": "https://github.com/Rise-Vision/common-style.git",
     "moment": "~2.8.3",
     "underscore": "1.6.0",
-    "webcomponentsjs": "Polymer/webcomponentsjs#~0.5.1",
     "widget-common": "https://github.com/Rise-Vision/widget-common.git",
     "widget-settings-ui-components": "https://github.com/Rise-Vision/widget-settings-ui-components.git",
     "widget-settings-ui-core": "https://github.com/Rise-Vision/widget-settings-ui-core.git"
