@@ -81,8 +81,8 @@ RiseVision.Calendar = (function (gadgets) {
           start = moment(timeMin).hour(start.hour()).minute(start.minute()).second(start.second());
         }
 
-        // Create separate events for a multi-day event so that they will be
-        // displayed for every day on which they take place.
+        /* Create separate events for a multi-day event so that they will be
+           displayed for every day on which they take place. */
         while (range.contains(start) && (start.isBefore(end) || start.isSame(end))) {
           newEvent = {};
           newEvent.start = {};
@@ -92,20 +92,9 @@ RiseVision.Calendar = (function (gadgets) {
           newEvent.location = events[i].location;
           newEnd = moment(start).hour(end.hour()).minute(end.minute()).second(end.second()).format();
 
-          if (events[i].start.dateTime) {
-            newEvent.start.dateTime = start.format();
-          }
-          else {
-            newEvent.start.date = start.format();
-          }
-
-          // Use the same date as the start date, but preserve the end time.
-          if (events[i].end.dateTime) {
-            newEvent.end.dateTime = newEnd;
-          }
-          else {
-            newEvent.end.date = newEnd;
-          }
+          // Events than span multiple days will not show times.
+          newEvent.start.date = start.format();
+          newEvent.end.date = newEnd;
 
           newEvents.push(newEvent);
           start.add(1, "days");
