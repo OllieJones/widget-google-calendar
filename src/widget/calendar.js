@@ -35,7 +35,7 @@ RiseVision.Calendar = (function (gadgets) {
     });
   }
 
-  function addEvents(resp) {
+  function addEvents(resp, timeMin, timeMax) {
     var i,
       length,
       currentEvents,
@@ -48,11 +48,90 @@ RiseVision.Calendar = (function (gadgets) {
     $("#days").empty();
 
     if (events.length > 0) {
+      var start, end, newEvent, newEvents = [], newEnd,
+        range = moment().range(timeMin, timeMax);
+
+      // Check if there are any events that span multiple days.
+      for (i = events.length - 1; i >= 0; i--) {
+        // Single event or multi-day event that is not All Day.
+        if (events[i].start.dateTime) {
+          start = moment(events[i].start.dateTime);
+        }
+        // All day event that may or may not span multiple days.
+        else {
+          start = moment(events[i].start.date);
+        }
+
+        // Single event or multi-day event that is not All Day.
+        if (events[i].end.dateTime) {
+          end = moment(events[i].end.dateTime);
+
+          // If the start and end dates are the same, this is not a multi-day event.
+          if (start.isSame(end, "day")) {
+            continue;
+          }
+        }
+        // All day event that may or may not span multiple days.
+        else {
+          end = moment(events[i].end.date);
+        }
+
+        // Ignore any events falling on days that started before timeMin.
+        if (moment(start).isBefore(timeMin)) {
+          start = moment(timeMin).hour(start.hour()).minute(start.minute()).second(start.second());
+        }
+
+        // Create separate events for a multi-day event so that they will be
+        // displayed for every day on which they take place.
+        while (range.contains(start) && (start.isBefore(end) || start.isSame(end))) {
+          newEvent = {};
+          newEvent.start = {};
+          newEvent.end = {};
+          newEvent.summary = events[i].summary;
+          newEvent.description = events[i].description;
+          newEvent.location = events[i].location;
+          newEnd = moment(start).hour(end.hour()).minute(end.minute()).second(end.second()).format();
+
+          if (events[i].start.dateTime) {
+            newEvent.start.dateTime = start.format();
+          }
+          else {
+            newEvent.start.date = start.format();
+          }
+
+          // Use the same date as the start date, but preserve the end time.
+          if (events[i].end.dateTime) {
+            newEvent.end.dateTime = newEnd;
+          }
+          else {
+            newEvent.end.date = newEnd;
+          }
+
+          newEvents.push(newEvent);
+          start.add(1, "days");
+        }
+
+        // Now remove the original event.
+        events.splice(i, 1);
+      }
+
+      // Add the new events.
+      events.push.apply(events, newEvents);
+
+      // Sort the events by startTime since multi-day events were added to the end.
+      events =  _.sortBy(events, function(event) {
+        if (event.start.dateTime) {
+          return new Date(event.start.dateTime).getTime();
+        }
+        else {
+          return new Date(event.start.date).getTime();
+        }
+      });
+
       while (events.length > 0) {
         if (events[0].start.dateTime) {
           currentDay = moment(events[0].start.dateTime);
         }
-        // All day event
         else {
           currentDay = moment(events[0].start.date);
         }

@@ -183,6 +183,7 @@
       "test/mock-data.js",
       "src/components/auto-scroll/jquery.auto-scroll.js",
       "src/components/moment/moment.js",
+      "src/components/moment-range/lib/moment-range.js",
       "src/components/underscore/underscore.js",
       "node_modules/widget-tester/mocks/gadget-mocks.js",
       "src/config/test.js",

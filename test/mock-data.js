@@ -14,7 +14,8 @@
         "speed": "medium",
         "pause": 5
       },
-      "dateRange": "day",
+      "dateRange": "12months",
+      "dateFormat": "D/M/YYYY",
       "dateFont": {
         "font": {
           "family": "Verdana"

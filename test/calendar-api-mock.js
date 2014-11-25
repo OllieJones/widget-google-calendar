@@ -39,6 +39,7 @@
               "end": {
                 "dateTime": moment().hour(7).minute(30).second(0).format()
               },
+              "location": "Gymnasium",
               "start": {
                 "dateTime": moment().hour(6).minute(30).second(0).format()
               },
@@ -73,7 +74,6 @@
               },
               "summary": "Lunch Time for everyone!"
             },
-
             {
               "description": "Our world famous diagnostician team takes your questions.",
               "end": {
@@ -84,6 +84,39 @@
                 "dateTime": moment().hour(9).minute(30).second(0).add(12, "months").format()
               },
               "summary": "Diagnostician Teaching Hour"
+            },
+            {
+              "description": "This occurs all day today.",
+              "end": {
+                "date": moment().add(1, "days").format("YYYY-MM-DD")
+              },
+              "location": "Conference Room B",
+              "start": {
+                "date": moment().format("YYYY-MM-DD")
+              },
+              "summary": "Single Day Event (All Day)"
+            },
+            {
+              "description": "This occurs all day today and tomorrow.",
+              "end": {
+                "date": moment().add(2, "days").format("YYYY-MM-DD")
+              },
+              "location": "Everywhere",
+              "start": {
+                "date": moment().add(-4, "days").format("YYYY-MM-DD")
+              },
+              "summary": "Multi-Day Event (All Day)"
+            },
+            {
+              "description": "This occurs today and tomorrow from 10 to 11.",
+              "end": {
+                "dateTime": moment().hour(11).minute(0).second(0).add(1, "days").format()
+              },
+              "location": "Here",
+              "start": {
+                "dateTime": moment().hour(10).minute(0).second(0).add(-4, "days").format()
+              },
+              "summary": "Multi-Day Event (not All Day)"
             }
           ];
 
