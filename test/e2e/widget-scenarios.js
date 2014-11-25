@@ -80,6 +80,10 @@ casper.test.begin("Google Calendar Widget - e2e Testing", function (test) {
         test.assertSelectorHasText(".day:nth-child(2) .event:nth-child(2) .summary", "Multi-Day Event (not All Day)", "Summary is correct");
         test.assertSelectorHasText(".day:nth-child(2) .event:nth-child(2) .location", "Here", "Location is correct");
         test.assertSelectorHasText(".day:nth-child(2) .event:nth-child(2) .description", "This occurs today and tomorrow from 10 to 11.", "Description is correct");
+
+        casper.test.comment("Error message is not displayed");
+
+        test.assertNotVisible(".error");
       });
     }
   );
