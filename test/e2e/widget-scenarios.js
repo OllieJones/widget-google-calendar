@@ -19,14 +19,11 @@ casper.test.begin("Google Calendar Widget - e2e Testing", function (test) {
     },
     function then() {
       casper.then(function() {
-        var singleStartTime, singleEndTime, multiStartTime, multiEndTime;
+        var singleStartTime, singleEndTime;
 
         this.evaluate(function() {
           singleStartTime = moment().hour(6).minute(30).second(0).format();
           singleEndTime = moment().hour(7).minute(30).second(0).format();
-
-          multiStartTime = moment().hour(10).minute(0).second(0).format();
-          multiEndTime = moment().hour(11).minute(0).second(0).format();
         })
 
         var date = this.evaluate(function() {
@@ -35,10 +32,6 @@ casper.test.begin("Google Calendar Widget - e2e Testing", function (test) {
 
         var singleTime = this.evaluate(function() {
           return moment(singleStartTime).format("h:mma") + " - " + moment(singleEndTime).format("h:mma");
-        });
-
-        var multiTime = this.evaluate(function() {
-          return moment(multiStartTime).format("h:mma") + " - " + moment(multiEndTime).format("h:mma");
         });
 
         test.assertElementCount(".day", 6, "There are 6 days");
@@ -76,14 +69,14 @@ casper.test.begin("Google Calendar Widget - e2e Testing", function (test) {
         casper.test.comment("Multi-Day Event (not All Day)");
         casper.test.comment("Today");
 
-        test.assertSelectorHasText(".day:nth-child(1) .event:nth-child(4) .time", multiTime, "Time is correct");
+        test.assertSelectorHasText(".day:nth-child(1) .event:nth-child(4) .time", "", "Time is correct");
         test.assertSelectorHasText(".day:nth-child(1) .event:nth-child(4) .summary", "Multi-Day Event (not All Day)", "Summary is correct");
         test.assertSelectorHasText(".day:nth-child(1) .event:nth-child(4) .location", "Here", "Location is correct");
         test.assertSelectorHasText(".day:nth-child(1) .event:nth-child(4) .description", "This occurs today and tomorrow from 10 to 11.", "Description is correct");
 
         casper.test.comment("Tomorrow");
 
-        test.assertSelectorHasText(".day:nth-child(2) .event:nth-child(2) .time", multiTime, "Time is correct");
+        test.assertSelectorHasText(".day:nth-child(2) .event:nth-child(2) .time", "", "Time is correct");
         test.assertSelectorHasText(".day:nth-child(2) .event:nth-child(2) .summary", "Multi-Day Event (not All Day)", "Summary is correct");
         test.assertSelectorHasText(".day:nth-child(2) .event:nth-child(2) .location", "Here", "Location is correct");
         test.assertSelectorHasText(".day:nth-child(2) .event:nth-child(2) .description", "This occurs today and tomorrow from 10 to 11.", "Description is correct");
