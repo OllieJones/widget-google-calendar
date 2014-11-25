@@ -24,8 +24,19 @@ RiseVision.Calendar = (function (gadgets) {
     RiseVision.Calendar.Provider.getEventsList(params, {
       "success": addEvents,
       "error": function(reason) {
-        $(".error").show();
-        console.log("Error retrieving calendar data: " + reason.result.error.message);
+        if (reason && reason.result && reason.result.error) {
+          if (reason.result.error.message) {
+            console.log("Error retrieving calendar data: " + reason.result.error.message);
+          }
+
+          // Network error. Retry later.
+          if (reason.result.error.code && reason.result.error.code === -1) {
+            startTimer();
+          }
+          else {
+            $(".error").show();
+          }
+        }
 
         if (isLoading) {
           isLoading = false;
@@ -42,7 +53,6 @@ RiseVision.Calendar = (function (gadgets) {
       calendarDay,
       calendarDays = [],
       dayFragment,
-      delay = 300000, /* 5 minutes */
       events = resp.result.items;
 
     $("#days").empty();
@@ -160,14 +170,7 @@ RiseVision.Calendar = (function (gadgets) {
       calendarDays[i].addDay(i);
     }
 
-    timeoutID = setTimeout(function() {
-      isExpired = true;
-
-      // Refresh immediately if the content is not scrolling.
-      if (!$container.data("plugin_autoScroll").canScroll()) {
-        refresh();
-      }
-    }, delay);
+    startTimer();
 
     if (isLoading) {
       if ($container) {
@@ -199,6 +202,19 @@ RiseVision.Calendar = (function (gadgets) {
     else {
       return !moment(event.start.date).isSame(currentDay, "day");
     }
+  }
+
+  function startTimer() {
+    var delay = 300000; /* 5 minutes */
+
+    timeoutID = setTimeout(function() {
+      isExpired = true;
+
+      // Refresh immediately if the content is not scrolling.
+      if (!$container.data("plugin_autoScroll").canScroll()) {
+        refresh();
+      }
+    }, delay);
   }
 
   function refresh() {
