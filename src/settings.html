@@ -74,7 +74,11 @@
                       <option value="M/D/YYYY">{{currentDate | date: "MM'/'dd'/'yyyy"}}</option>
                       <option value="YYYY/M/D">{{currentDate | date: "yyyy'/'MM'/'dd"}}</option>
                       <option value="MMMM D, YYYY">{{currentDate | date: "MMMM dd',' yyyy"}}</option>
+                      <option value="dddd, MMMM D">{{currentDate | date:"EEEE',' MMMM d"}}</option>
+                      <option value="dddd, MMMM D, YYYY">{{currentDate | date:"EEEE',' MMMM d',' yyyy"}}</option>
                       <option value="D-MMM-YYYY">{{currentDate | date:"dd'-'MMM'-'yyyy"}}</option>
+                      <option value="ddd, MMM D">{{currentDate | date:"EEE',' MMM d"}}</option>
+                      <option value="ddd, D-MMM-YYYY">{{currentDate | date:"EEE',' dd'-'MMM'-'yyyy"}}</option>
                     </select>
                   </div>
                 </div>
