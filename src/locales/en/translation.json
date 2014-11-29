@@ -13,11 +13,6 @@
     "hour" : "Unless the event is one hour long",
     "hourorless" : "For events longer than one hour"
   },
-  "concealPastEvents" : {
-    "label": "Show today's completed events",
-    "never": "Yes",
-    "always": "No"
-  },
   "date": {
     "heading": "Date",
     "range": {
