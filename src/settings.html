@@ -110,19 +110,6 @@
                 </div>
               </div>
               <div class="form-group">
-                <label for="concealEndTime">{{ "concealEndTime.label" | translate }}</label>
-                <div class="row">
-                  <div class="col-xs-6 col-md-3">
-                    <select id="concealEndTime" name="concealEndTime" ng-model="settings.additionalParams.concealEndTime" class="form-control">
-                      <option value="never">{{"concealEndTime.never" | translate}}</option>
-                      <option value="always">{{"concealEndTime.always" | translate}}</option>
-                      <option value="hour">{{"concealEndTime.hour" | translate}}</option>
-                      <option value="hourorless">{{"concealEndTime.hourorless" | translate}}</option>
-                    </select>
-                  </div>
-                </div>
-              </div>
-              <div class="form-group">
                 <label>{{"time.font.label" | translate}}</label>
                 <font-setting font-data="settings.additionalParams.timeFont" hide-alignment="true"
                               preview-text="{{'time.font.text' | translate}}">
