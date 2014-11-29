@@ -6,13 +6,6 @@
       "required": "Please enter a Calendar ID"
     }
   },
-  "concealEndTime" : {
-    "label": "Show event ending times",
-    "never": "Always",
-    "always": "Never",
-    "hour" : "Unless the event is one hour long",
-    "hourorless" : "For events longer than one hour"
-  },
   "date": {
     "heading": "Date",
     "range": {
