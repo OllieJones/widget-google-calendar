@@ -4,7 +4,7 @@ angular.module("risevision.widget.googleCalendar.settings")
       $scope.showDateFormat = false;
       $scope.dateFormatValue = "D/M/YYYY";
       $scope.concealEndTime = "never";
-      $scope.concealPastEvents = "never";
+      $scope.revealPastEvents = true;
 
       $scope.currentDate = new Date();
 
@@ -20,9 +20,9 @@ angular.module("risevision.widget.googleCalendar.settings")
         }
       });
 
-      $scope.$watch("settings.additionalParams.concealPastEvents", function (value) {
+      $scope.$watch("settings.additionalParams.revealPastEvents", function (value) {
         if (typeof value !== "undefined" && value) {
-          $scope.concealPastEvents = value;
+          $scope.revealPastEvents = value;
         }
       });
 
@@ -57,7 +57,7 @@ angular.module("risevision.widget.googleCalendar.settings")
       },
       timeFormat: "12hour",
       concealEndTime: "never",  /*or "always" or "hour" or "hourorless" */
-      concealPastEvents: "never",  /*or "always" */
+      revealPastEvents: true, /* or false */
       titleFont: {
         bold: true
       },

@@ -74,13 +74,11 @@
               </div>
             </div>
             <div class="form-group">
-              <label for="concealPastEvents">{{ "concealPastEvents.label" | translate }}</label>
               <div class="row">
-                <div class="col-xs-6 col-md-3">
-                  <select id="concealPastEvents" name="concealPastEvents" ng-model="settings.additionalParams.concealPastEvents" class="form-control">
-                    <option value="never">{{"concealPastEvents.never" | translate}}</option>
-                    <option value="always">{{"concealPastEvents.always" | translate}}</option>
-                  </select>
+                <div class="col-xs-6 col-md-6">
+                  <input  id="revealPastEvents" name="revealPastEvents" ng-model="settings.additionalParams.revealPastEvents" type="checkbox">
+                  &nbsp;&nbsp;
+                  <label for="revealPastEvents">{{ "revealPastEvents.label" | translate }}</label>
                 </div>
               </div>
             </div>

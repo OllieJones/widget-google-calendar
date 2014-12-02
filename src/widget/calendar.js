@@ -139,7 +139,7 @@ RiseVision.Calendar = (function (gadgets) {
         currentEvents = _.filter(events, getCurrentEvents);
 
         /* conditionally eliminate events for which end dates are in the past */
-        if (params.concealPastEvents === "always") {
+        if (!params.revealPastEvents) {
           currentEvents = _.filter(currentEvents, removeTodaysCompletedEvents);
         }
 
