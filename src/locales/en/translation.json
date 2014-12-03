@@ -16,6 +16,9 @@
   "revealPastEvents" : {
     "label": "Show already-completed events for the current day"
   },
+  "css-additions" : {
+    "label": "Additional CSS rules"
+  },
   "date": {
     "heading": "Date",
     "range": {

@@ -21,7 +21,21 @@ RiseVision.Calendar.Day = function(params) {
       length,
       date,
       currentDate = events[0].start.dateTime ? events[0].start.dateTime : events[0].start.date,
-      $day = $(".day").eq(pos);
+      $day = $(".day").eq(pos),
+      weekday = moment(currentDate).format("dddd").toLowerCase(),
+      daynn =  "day" + moment(currentDate).format("D"),
+      datemmmnn = "date" + moment(currentDate).format("MMMD").toLowerCase();
+
+
+    switch(pos) {
+      case 0: $day.addClass("today"); break;
+      case 1: $day.addClass("tomorrow"); break;
+      case 7: $day.addClass("nextweek"); break;
+    }
+
+    $day.addClass(weekday);    /* we give each day a class named for its weekday */
+    $day.addClass(daynn);      /* we give each day a class named for the day of the month */
+    $day.addClass(datemmmnn);  /* we give each day a class named for the date in the year */
 
     if (params.dateRange === "day") {
       date = "Today";

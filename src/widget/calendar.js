@@ -248,6 +248,12 @@ RiseVision.Calendar = (function (gadgets) {
   /*
    *  Public Methods
    */
+  function injectCSS(rule) {
+    console.log ("appending", rule);
+    var $style = "<div><style>" + rule + "</style></div>";
+    $($style).appendTo("body");
+  }
+
   function getAdditionalParams(names, values) {
     if (Array.isArray(names) && names.length > 0 && names[0] === "additionalParams") {
       if (Array.isArray(values) && values.length > 0) {
@@ -279,9 +285,14 @@ RiseVision.Calendar = (function (gadgets) {
 
         utils.loadFonts(fontSettings);
 
+        if (params.extraCSS && params.extraCSS.length > 0) {
+          injectCSS(params.extraCSS);
+        }
+
         // Store the base HTML in a DocumentFragment so that it can be used later.
         fragment = document.createDocumentFragment();
         daysNode = document.getElementById("days");
+
 
         // Add the HTML to the fragment.
         if (daysNode) {
