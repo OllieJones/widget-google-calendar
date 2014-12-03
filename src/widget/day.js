@@ -29,8 +29,6 @@ RiseVision.Calendar.Day = function(params) {
       daysaway = todaysMoment.diff(moment().hour(0).minute(0).second(0).millisecond(0), "days");
 
 
-    console.log (daysaway, todaysMoment.format("LLL"));
-
     switch(daysaway) {
       case 0: $day.addClass("today"); break;
       case 1: $day.addClass("tomorrow"); break;
