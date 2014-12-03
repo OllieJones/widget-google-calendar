@@ -131,6 +131,9 @@
             "highlightColor":"transparent"
           },
           "timeFormat": "12hour",
+          "concealEndTime": "never",
+          "revealPastEvents": true,
+          "extraCSS":"",
           "titleFont": {
             "bold":true,
             "font": {
@@ -169,8 +172,7 @@
             "underline":false,
             "color":"black",
             "highlightColor":"transparent"
-          }
-        }
+          }        }
       };
 
       // simulate entering a calendar id
@@ -178,11 +180,16 @@
 
       element(by.id("save")).click();
 
-      expect(browser.executeScript("return window.result")).to.eventually.deep.equal(
+      var result = browser.executeScript("return window.result");
+
+      console.log("result", result);
+      console.log("predicted", JSON.stringify(settings.additionalParams));
+
+      expect(browser.executeScript("return window.result").to.eventually.deep.equal(
         {
           'additionalParams': JSON.stringify(settings.additionalParams),
           'params': ''
-        });
+        }));
     });
 
   });
