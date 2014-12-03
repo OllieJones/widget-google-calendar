@@ -249,9 +249,8 @@ RiseVision.Calendar = (function (gadgets) {
    *  Public Methods
    */
   function injectCSS(rule) {
-    console.log ("appending", rule);
-    var $style = "<div><style>" + rule + "</style></div>";
-    $($style).appendTo("body");
+    var style = "<div><style>" + rule + "</style></div>";
+    $(style).appendTo("body");
   }
 
   function getAdditionalParams(names, values) {

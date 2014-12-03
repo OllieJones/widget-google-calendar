@@ -22,12 +22,16 @@ RiseVision.Calendar.Day = function(params) {
       date,
       currentDate = events[0].start.dateTime ? events[0].start.dateTime : events[0].start.date,
       $day = $(".day").eq(pos),
-      weekday = moment(currentDate).format("dddd").toLowerCase(),
-      daynn =  "day" + moment(currentDate).format("D"),
-      datemmmnn = "date" + moment(currentDate).format("MMMD").toLowerCase();
+      todaysMoment = moment(currentDate),
+      weekday = todaysMoment.format("dddd").toLowerCase(),
+      daynn =  "day" + todaysMoment.format("D"),
+      datemmmnn = "date" + todaysMoment.format("MMMD").toLowerCase(),
+      daysaway = todaysMoment.diff(moment().hour(0).minute(0).second(0).millisecond(0), "days");
 
 
-    switch(pos) {
+    console.log (daysaway, todaysMoment.format("LLL"));
+
+    switch(daysaway) {
       case 0: $day.addClass("today"); break;
       case 1: $day.addClass("tomorrow"); break;
       case 7: $day.addClass("nextweek"); break;
