@@ -21,6 +21,18 @@ RiseVision.Calendar.Event = (function () {
     /* here the time gets formatted. */
     if (event.start && event.end && event.start.dateTime && event.end.dateTime) {
 
+      /* stick a "current" class on events currently in progress */
+      if (!(moment().isBefore(moment(event.start.dateTime))) &&
+        moment().isBefore(moment(event.end.dateTime))) {
+        $day.find(".event").eq(pos).addClass("current");
+      }
+
+      /* stick a "past" class on completed events */
+      if (!moment().isBefore(moment(event.end.dateTime))) {
+        $day.find(".event").eq(pos).addClass("past");
+      }
+
+
       if (concealEndTime !== "always") {
         if (concealEndTime !== "never") {
           /* how long in minutes is the event ? */
@@ -36,6 +48,10 @@ RiseVision.Calendar.Event = (function () {
         $day.find(".time").eq(pos).text(moment(event.start.dateTime).format(timeFormat) +
           " - " + moment(event.end.dateTime).format(timeFormat));
       }
+    }
+    else {
+      /* conceal the time element, because there's nothing to put into it. */
+      $day.find(".time").eq(pos).hide();
     }
 
 

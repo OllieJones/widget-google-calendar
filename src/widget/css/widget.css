@@ -24,16 +24,17 @@ ul {
 }
 
 .time {
-  margin-right: 10px;
+  margin-right: 12px;
 }
 
 .events {
   padding: 10px 20px 0px 20px;
-  border-bottom: 1px solid gray;
 }
 
 .day {
   padding-top: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid gray;
 }
 
 .error {

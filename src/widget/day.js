@@ -25,7 +25,7 @@ RiseVision.Calendar.Day = function(params) {
       todaysMoment = moment(currentDate),
       weekday = todaysMoment.format("dddd").toLowerCase(),
       daynn =  "day" + todaysMoment.format("D"),
-      datemmmnn = "date" + todaysMoment.format("MMMD").toLowerCase(),
+      monthname = todaysMoment.format("MMMM").toLowerCase(),
       daysaway = todaysMoment.diff(moment().hour(0).minute(0).second(0).millisecond(0), "days");
 
 
@@ -34,10 +34,16 @@ RiseVision.Calendar.Day = function(params) {
       case 1: $day.addClass("tomorrow"); break;
       case 7: $day.addClass("nextweek"); break;
     }
+    if (daysaway > 0) {
+      $day.addClass("nottoday");
+    }
+    if (daysaway > 1) {
+      $day.addClass("future");
+    }
 
     $day.addClass(weekday);    /* we give each day a class named for its weekday */
     $day.addClass(daynn);      /* we give each day a class named for the day of the month */
-    $day.addClass(datemmmnn);  /* we give each day a class named for the date in the year */
+    $day.addClass(monthname);  /* we give each day a class named for the month */
 
     if (params.dateRange === "day") {
       date = "Today";

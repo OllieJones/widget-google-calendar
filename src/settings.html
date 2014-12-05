@@ -172,27 +172,35 @@
                 <div class="col-xs-6 col-md-6">
                   <p>You can add styling rules in this box, using the full capabilities of CSS.</p>
                   <p>For example, if you add the rule <tt>.today .date {color: red;}</tt> the date for today's events will be rendered in red.</p>
-                  <p>In your CSS selector in place of <tt>.today</tt> you may use <tt>.tomorrow</tt>, <tt>.nextweek</tt>,
-                    or an English-language weekday name like <tt>.tuesday</tt>.</p>
-                  <p>You can use <tt>.day1</tt> to style the first day of each month, or <tt>.day25</tt> to style the 25th day. You can also use <tt>.dateapr1</tt> to
-                  style the first of April, or <tt>.datedec25</tt> to style the 25th of December.</p>
+                  <p>In your CSS selector in place of <tt>.today</tt> you may use <tt>.nottoday</tt>, <tt>.tomorrow</tt>, <tt>.future</tt>, <tt>.nextweek</tt>,
+                    or an English-language weekday name like <tt>.tuesday</tt>. <tt>.future</tt> refers to all days except today and tomorrow.  <tt>.nextweek</tt>
+                    refers to the day that's one week from today.</p>
+                  <p>If you want to show only an overview of future events, you can use the following style rule.
+                    It conceals locations and descriptions for all events except today's and tomorrow's.
+                  <pre>.future .description, .future .location {display: none;}</pre></p>
+                  <p>For today's events, you can use the <tt>.current</tt> and <tt>.past</tt> selectors. For example, to show current (presently in progress) events in orange
+                    and completed events in gray, use these style rules.
+                  <pre>.current .all {color: orange;}<br />.past .all {color: gray;}</pre></p>
+                  <p>You can use <tt>.day1</tt> to style the first day of each month, or <tt>.day25</tt> to style the 25th day.
+                    You can use the <tt>.december</tt> selector in the same way to style everything in December. You can combine these selectors. For example,
+                    <tt>.december.day25</tt> styles events on December 25th.</p>
                   <p>In place of <tt>.date</tt> you may use <tt>.time</tt>, <tt>.summary</tt>, <tt>.location</tt> or <tt>.description</tt>.
                     If you use <tt>.header</tt> you'll style the time, summary, and location all together. If you use <tt>.all</tt> you'll style all parts of the display.
                     So, you can show the header for tomorrow's events in red like this:
-                    <pre>.tomorrow .header { color:red;}</pre></p>
+                  <pre>.tomorrow .header {color:red;}</pre></p>
                   You can show everything about Sunday events in dark blue like this:
-                  <pre>.sunday .all { color:darkblue;}</pre></p>
+                  <pre>.sunday .all {color:darkblue;}</pre></p>
                   <p>To indent the location of each event, and show the location of today's events in blue, you can use this CSS:
-                  <pre>.location {  margin-left: 40px; }<br />.today .location {  color:blue; }</pre></p>
+                  <pre>.location {margin-left: 40px; }<br />.today .location {color:blue; }</pre></p>
                 </div>
               </div>
             </div>
           </div>
-          </form>
-        </div>
+        </form>
       </div>
     </div>
   </div>
+</div>
 </div>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
