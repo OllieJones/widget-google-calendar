@@ -13,7 +13,6 @@
   },
   "author": "Rise Vision",
   "license": "GPLv3",
-  "bucket": "widget-google-calendar",
   "bugs": {
     "url": "https://github.com/Rise-Vision/widget-google-calendar/issues"
   },
