@@ -97,82 +97,83 @@
       var settings = {
         params: {},
         additionalParams: {
-          "calendar": calendarId,
+          "calendar": "mycalendarid",
           "scroll": {
-            "by":"none",
-            "speed":"medium",
-            "pause":5
+            "by": "none",
+            "speed": "medium",
+            "pause": 5
           },
           "dateRange": "day",
           "dateFont": {
-            "bold":true,
+            "bold": true,
             "font": {
               "type": "standard",
               "name": "Verdana",
-              "family":"Verdana"
+              "family": "Verdana"
             },
-            "size":"20",
-            "italic":false,
-            "underline":false,
-            "color":"black",
-            "highlightColor":"transparent"
+            "size": "20",
+            "italic": false,
+            "underline": false,
+            "color": "black",
+            "highlightColor": "transparent"
           },
           "timeFont": {
-            "bold":true,
+            "bold": true,
             "font": {
               "type": "standard",
               "name": "Verdana",
-              "family":"Verdana"
+              "family": "Verdana"
             },
-            "size":"20",
-            "italic":false,
-            "underline":false,
-            "color":"black",
-            "highlightColor":"transparent"
+            "size": "20",
+            "italic": false,
+            "underline": false,
+            "color": "black",
+            "highlightColor": "transparent"
           },
           "timeFormat": "12hour",
           "concealEndTime": "never",
           "revealPastEvents": true,
-          "extraCSS":"",
+          "extraCSS": "",
           "titleFont": {
-            "bold":true,
+            "bold": true,
             "font": {
               "type": "standard",
               "name": "Verdana",
-              "family":"Verdana"
+              "family": "Verdana"
             },
-            "size":"20",
-            "italic":false,
-            "underline":false,
-            "color":"black",
-            "highlightColor":"transparent"
+            "size": "20",
+            "italic": false,
+            "underline": false,
+            "color": "black",
+            "highlightColor": "transparent"
           },
           "locationFont": {
-            "bold":true,
+            "bold": true,
             "font": {
               "type": "standard",
               "name": "Verdana",
-              "family":"Verdana"
+              "family": "Verdana"
             },
-            "size":"20",
-            "italic":false,
-            "underline":false,
-            "color":"black",
-            "highlightColor":"transparent"
+            "size": "20",
+            "italic": false,
+            "underline": false,
+            "color": "black",
+            "highlightColor": "transparent"
           },
           "descriptionFont": {
-            "size":"18",
+            "size": "18",
             "font": {
               "type": "standard",
               "name": "Verdana",
-              "family":"Verdana"
+              "family": "Verdana"
             },
-            "bold":false,
-            "italic":false,
-            "underline":false,
-            "color":"black",
-            "highlightColor":"transparent"
-          }        }
+            "bold": false,
+            "italic": false,
+            "underline": false,
+            "color": "black",
+            "highlightColor": "transparent"
+          }
+        }
       };
 
       // simulate entering a calendar id
