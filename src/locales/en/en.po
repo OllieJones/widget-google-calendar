@@ -1,0 +1,85 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: node-gettext\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+
+msgid "settings"
+msgstr "Google Calendar Settings"
+
+msgid "calendar##label"
+msgstr "Calendar ID"
+
+msgid "calendar##error##required"
+msgstr "Please enter a Calendar ID"
+
+msgid "date##heading"
+msgstr "Date"
+
+msgid "date##range##label"
+msgstr "Range"
+
+msgid "date##range##day"
+msgstr "Day"
+
+msgid "date##range##week"
+msgstr "Week"
+
+msgid "date##range##month"
+msgstr "Month"
+
+msgid "date##range##6months"
+msgstr "6 Months"
+
+msgid "date##range##12months"
+msgstr "12 Months"
+
+msgid "date##format##label"
+msgstr "Format"
+
+msgid "date##font##label"
+msgstr "Font"
+
+msgid "date##font##text"
+msgstr "Date Sample Text"
+
+msgid "time##heading"
+msgstr "Time"
+
+msgid "time##font##label"
+msgstr "Font"
+
+msgid "time##font##text"
+msgstr "Time Sample Text"
+
+msgid "time##format##label"
+msgstr "Format"
+
+msgid "time##format##12hour"
+msgstr "12-Hour"
+
+msgid "time##format##24hour"
+msgstr "24-Hour"
+
+msgid "title-font##label"
+msgstr "Title Font"
+
+msgid "event##heading"
+msgstr "Event Description"
+
+msgid "title-font##text"
+msgstr "Title Sample Text"
+
+msgid "location-font##label"
+msgstr "Location Font"
+
+msgid "location-font##text"
+msgstr "Location Sample Text"
+
+msgid "description-font##label"
+msgstr "Description Font"
+
+msgid "description-font##text"
+msgstr "Description Sample Text"

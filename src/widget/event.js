@@ -54,7 +54,6 @@ RiseVision.Calendar.Event = (function () {
       $day.find(".time").eq(pos).hide();
     }
 
-
     if (event.summary) {
       $day.find(".summary").eq(pos).html(event.summary);
     }

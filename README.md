@@ -1,4 +1,4 @@
-# Google Calendar Widget [![Build Status](http://devtools1.risevision.com:8080/view/Widgets%20and%20Components/job/Widget-Google-Calendar-Master-Build/badge/icon)](http://devtools1.risevision.com:8080/view/Widgets%20and%20Components/job/Widget-Google-Calendar-Master-Build/)
+# Google Calendar Widget [![Circle CI](https://circleci.com/gh/Rise-Vision/widget-google-calendar/tree/master.svg?style=svg)](https://circleci.com/gh/Rise-Vision/widget-google-calendar/tree/master)
 
 ## Introduction
 
